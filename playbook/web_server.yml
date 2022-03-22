@@ -1,0 +1,19 @@
+---
+- hosts: webservers
+  remote_user: cloud_user
+  become: yes
+  become_user: cloud_user
+  
+  pre_tasks:
+
+      - name: Doing an apt-get update
+        apt:
+          update_cache: yes
+          cache_valid_time: 3600
+      - name: Create the wwww directory 
+        file:
+          path: /var/wwww/{{ domain}}
+          state: directory
+          mode: '0775'
+          owner: "{{ ansible_user }}"
+          group: "{{ ansible_user }}"

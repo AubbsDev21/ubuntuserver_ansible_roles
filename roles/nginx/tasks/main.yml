@@ -1,0 +1,10 @@
+---
+- name: install nginx
+  import_tasks: install_nginx.yml
+
+- name: delete nginx default config file
+  import_tasks: delete_ngnix_site.yml
+
+- name: Copy nginx config file
+  import_tasks: copy_config.yml
+# tasks file for nginx

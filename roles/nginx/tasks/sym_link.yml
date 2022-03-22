@@ -1,0 +1,7 @@
+---
+- file:
+    src: /etc/nginx/sites-available/static_site.cfg
+    dest: /etc/nginx/sites-enabled/default
+    state: link
+  become: true
+  
